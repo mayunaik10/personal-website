@@ -1,0 +1,175 @@
+<html>
+<head>
+<style>
+body{
+background-color: aqua;
+background-size:cover;
+}
+h1{
+ text-align:center; 
+}
+td{
+ font-size:20px;
+}
+caption{
+font-size:25px;
+}
+p{
+text-align:center;
+}
+</style>
+<script type="text/javascript">
+function checkFirst(){ //test condition
+	var fName = document.getElementById("fname").value;
+	var rel = /^[a-zA-Z\s\'\-]{2,15}$/;
+	if(rel.test(fName)){ //if input is valid
+		document.getElementById("message1").style.color="black";
+		document.getElementById("message1").innerHTML="<strong>valid</strong>";
+		return true;
+	}
+	else{ //if input is not valid
+		document.getElementById("message1").style.color="white";
+		document.getElementById("message1").innerHTML = "<strong>please use 2 or more letters!</strong>";
+		return false;
+}
+}
+
+function checkSec(){
+	var lName = document.getElementById("lname").value;
+	var rel = /^[a-zA-Z\s\'\-]{2,15}$/;
+	if(rel.test(lName)){
+		document.getElementById("message2").style.color="black";
+		document.getElementById("message2").innerHTML="<strong>valid</strong>";
+		return true;
+	}
+	else{
+		document.getElementById("message2").style.color="white";
+		document.getElementById("message2").innerHTML = "<strong>please use 2 or more letters!</strong>";
+		return false;
+}
+}
+</script>
+
+</head>
+<body>
+<h1> Individual Registration</h1>
+<form action="#" onsubmit="return validation()" >
+<table align="center">
+<tr>
+<td>Username:</td>
+<td><input type="text" name="user" class="form-control" id="user" autocomplete="off" required >
+<span id="username" class="text-white  font-weight-bold"> </span></td>
+</tr>
+
+<tr>
+<td>Password:</td>
+<td><input type="password" name="pass" class="form-control" id="pass" autocomplete="off" required >
+<span id="passwords" class="text-white  font-weight-bold"> </span></td>
+</tr>
+
+<tr>
+<td>Confirm Password:</td>
+<td><input type="password" name="conpass" class="form-control"  id="conpass" autocomplete="off" required  >
+<span id="passconf" class="text-white  font-weight-bold"> </span></td>
+</tr>
+</table><br><br>
+
+<table align="center">
+<caption><b><u>Personal Details</u></b></caption>
+<tr>
+<td>Name:</td>
+<td><input type="text" name="fname" class="form-control" id="fname" autocomplete="off"  placeholder="First Name" required onblur="checkFirst();"/>
+<span id="message1" class="text-white  font-weight-bold"></span></td>
+<td><input type="text" name="lname" class="form-control" id="lname" autocomplete="off"  placeholder="Last Name" required onblur="checkSec();"/>
+<span id="message2" class="text-white  font-weight-bold"></span></td>
+</tr>
+
+<tr>
+<td>Gender</td>
+<td><input type="radio" name="sex" value="male" >Male<br>
+<input type="radio" name="sex" value="female">Female<br>
+<input type="radio" name="sex" value="Transgender">Transgender</td>
+</tr>
+
+<tr>
+<td>Birth Date</td>
+<td><input type="date" name="date" class="form-control" id="destination" required autocomplete="off" >
+<span id="date" class="text-white  font-weight-bold"></span></td>
+</tr>
+
+<tr>
+<td>Phone Number</td>
+<td><input type="text" name="phone" id="phone" autocomplete="off" required placeholder="xxx xxx xxxx" > 
+</td>
+</tr>
+
+<tr>
+<td>Email Id</td>
+<td><input type="text" name="email" class="form-control" id="email" required autocomplete="off" ></td>
+</tr>
+</table><br>
+<br>
+
+
+<table align="center">
+<caption><b><u>Residential Address</u></b></caption>
+<tr>
+<td>Flat / Door / Block No:</td>
+<td><input type="text" name="block" id="block" required autocomplete="off"  > 
+</td>
+</tr>
+
+<tr>
+<td>Street:</td>
+<td><input type="text" name="street" id="street" autocomplete="off"  > 
+</td>
+</tr>
+
+<tr>
+<td>City:</td>
+<td><input type="text" name="city" id="city" required autocomplete="off"  > 
+</td>
+<td>Pin Code:</td>
+<td><input type="text" name="pin" id="pin" required autocomplete="off"  > 
+</td>
+</tr>
+
+<tr>
+<td>State:</td>
+<td><input type="text" name="state" id="state" required autocomplete="off"  > 
+</td>
+</tr>
+</table><br>
+
+<p><input type="submit"  name="Register" value="Register" class="btn btn-success" autocomplete="off"></p>
+
+
+
+</form>
+
+<script type="text/javascript">
+
+function validation(){
+var user = document.getElementById('user').value;
+var pass = document.getElementById('pass').value;
+var confirmpass = document.getElementById('conpass').value;
+if(user==""){
+document.getElementById('username').innerHTML="**Please fill the username field";
+return false;
+}
+
+
+if(pass==""){
+document.getElementById('passwords').innerHTML="**Please fill the password field";
+return false;
+}
+
+if(pass!=confirmpass){
+document.getElementById('passconf').innerHTML="**Passwords are not matching";
+return false;
+}
+}
+</script><br>
+<center><a href="Home.html" ><input type="submit"  name="Register" value="Back" class="btn btn-success" autocomplete="off"></a></center>
+</body>
+</html>
